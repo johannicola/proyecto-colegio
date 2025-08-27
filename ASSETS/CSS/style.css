@@ -1,3 +1,15 @@
+.navbar .login-button {
+    margin-top: 1px; 
+    margin-left: 15px;
+    display: inline-block;
+}
+.navbar {
+    background-color: #fff;
+    height: 80px;
+    margin: 20px;
+    border-radius: 16px;
+    padding: 0.5rem;
+}
 .navbar-brand{
     font-weight: 500;
     color: #009970;
@@ -15,7 +27,7 @@
     transition: 0.3 background-color;
 }
 
-.login-button :hover {
+.login-button:hover {
     background-color: green;
 }
 
@@ -33,6 +45,7 @@
     color: #666777;
     font-weight: 500;
     position: relative;
+    
 }
 
 .nav-link:hover, .nav-link.active{
@@ -46,21 +59,31 @@
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 0%; /* Empieza invisible */
+    width: 0%;
     height: 2px;
     background-color: rgba(145, 255, 0, 0.842);
-    transition: width 0.3s ease; /* animación */
+    transition: width 0.3s ease; 
     }
 
     .nav-link:hover::before,
     .nav-link.active::before {
-    width: 100%; /* Se muestra solo en hover o en el activo */
+    width: 100%; 
     }
 }
 
-.hero.section{
-    background: url(imagen.jpg) no-repeat center;
+.hero-section{
+    background: url(/ASSETS/IMG/fondo-index.jpg) no-repeat center;
     background-size: cover;
     width: 100%;
     height: 100vh;
+}
+
+.hero-section::before {
+    background-color: rgba(0, 0, 0, 0.6);
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
 }

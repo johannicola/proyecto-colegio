@@ -16,49 +16,40 @@
 
 <body>
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg fixed-top bg-light">
+<nav class="navbar navbar-expand-lg fixed-top bg-white shadow-sm">
   <div class="container-fluid">
-    <!-- Marca -->
-    <a class="navbar-brand" href="#">colegio</a>
+    <!-- Logo -->
+    <a class="navbar-brand fw-bold text-success" href="#">Logo</a>
 
-    <!-- Botón hamburguesa (solo en móvil) -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-      data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-      aria-expanded="false" aria-label="Toggle navigation">
+    <!-- Botón hamburguesa -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+      data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <!-- Contenido colapsable -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-      <!-- Botón cerrar SOLO en móvil -->
-      <div class="d-lg-none text-end w-100">
-        <button type="button" class="btn-close my-2" data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent" aria-label="Close"></button>
+    <!-- Menú -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+      aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header d-lg-none">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Logo</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
 
-      <!-- Menú principal -->
-      <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link mx-lg-2" href="#">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link mx-lg-2" href="#">Cursos</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link mx-lg-2" href="#">Tienda</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link mx-lg-2" href="#">Registro</a>
-        </li>
-      </ul>
-    </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Academico</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Profesores</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Tienda</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Contacto</a></li>
+        </ul>
 
-    <!-- Botón login -->
-    <a href="#" class="login-button">Login</a>
+        <!-- Botón Login -->
+        <div class="text-center mt-3 mt-lg-0">
+          <a href="#" class="login-button">Login</a>
+        </div>
+      </div>
+    </div>
   </div>
 </nav>
 
