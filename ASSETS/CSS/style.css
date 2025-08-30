@@ -1,198 +1,216 @@
-/* ---------------- NAVBAR ---------------- */
-.navbar .login-button {
-    margin-top: 1px; 
-    margin-left: 15px;
-    display: inline-block;
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Honk', sans-serif;
+  color: #722f37; /* títulos en borgoña */
+}
+
+.carousel-caption h5 {
+  font-family: 'Honk', sans-serif;
+  color: #d4af37; /* título dorado en carrusel */
+}
+
+* {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+body {
+  background: #f5f1eb; /* fondo blanco marfil */
+  color: #000000; /* texto negro */
+}
+
+.section-padding {
+  padding: 70px 0;
+  background: #e8ddd4; /* fondo beige claro para secciones */
+}
+
+.carousel-item {
+  height: 100vh;
+  min-height: 300px;
+  margin-top: 4%;
+}
+
+.carousel-caption {
+  bottom: 200px;
+  z-index: 2;
+}
+
+.carousel-caption h5 {
+  font-size: 45px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 25px;
+}
+
+.carousel-caption p {
+  width: 60%;
+  margin: auto;
+  font-size: 18px;
+  line-height: 1.9;
+  color: #faf8f3; /* texto claro en carrusel */
+}
+
+.carousel-inner::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(114, 47, 55, 0.55); /* overlay borgoña semitransparente */
+  z-index: 1;
 }
 
 .navbar {
-    background-color: #f5f1eb; /* blanco marfil */
-    height: 80px;
-    margin: 20px;
-    border-radius: 16px;
-    padding: 0.5rem;
+  background-color: #722f37; /* borgoña principal */
+}
+
+.navbar-nav a {
+  font-size: 15px;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #f5f1eb; /* texto claro */
+}
+
+.navbar-nav a:hover {
+  color: #8b3a42; /* borgoña claro en hover */
+}
+
+.navbar-dark .navbar-brand {
+  color: #d4af37; /* dorado para resaltar logo */
+  font-size: 25px;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.navbar-light .navbar-brand:focus, 
+.navbar-light .navbar-brand:hover {
+  color: #8b3a42;
+}
+
+.w-100 {
+  height: 100vh;
+}
+
+.navbar-toggler {
+  padding: 1px 5px;
+  font-size: 18px;
+  line-height: 0.3;
+  color: #d4af37; /* dorado */
+}
+
+.services .card {
+  background: #faf8f3; /* blanco hueso */
+  border: 1px solid #e8ddd4;
+}
+
+.services .card-body {
+  font-size: 50px;
+  color: #722f37;
+}
+
+.team .card {
+  background: #faf8f3;
+  border: 1px solid #e8ddd4;
+}
+
+.team .card-body i {
+  font-size: 20px;
+  color: #d4af37;
+}
+
+@media(max-width: 767px){
+  .navbar-nav {
+    text-align: center;
+  }
+  .carousel-item {
+    height: 70vh;
+  }
+  .w-100 {
+    height: 70vh;
+  }
+  .carousel-caption {
+    bottom: 50px; /* más cerca del centro para que se vea */
+    padding: 0 15px; /* un poco de padding lateral */
+  }
+  .carousel-caption h5 {
+    font-size: 24px; /* más grande para que sea legible */
+  }
+  .carousel-caption a {
+    padding: 10px 15px;
+    font-size: 15px;
+  }
+  .carousel-caption p {
+    width: 100%;
+    font-size: 14px; /* legible */
+    line-height: 1.5;
+  }
+  .about-text {
+    padding-top: 50px;
+  }
+  .card {
+    margin-bottom: 30px;
+  }
+  .section-padding {
+    padding: 50px 0;
+  }
 }
 
 .navbar-brand {
-    font-weight: 500;
-    color: #722f37; /* borgoña principal */
-    font-size: 24px;
-    transition: 0.3s color;
+  font-family: 'Honk', sans-serif;
 }
 
-.login-button {
-    background-color: #722f37; /* borgoña */
-    color: #faf8f3; /* blanco hueso */
-    font-size: 14px;
-    padding: 8px 20px;
-    border-radius: 50px;
-    text-decoration: none;
-    transition: 0.3s background-color;
+/* Fuente de respaldo */
+* {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-.login-button:hover {
-    background-color: #8b3a42; /* borgoña claro */
+/* Fuente Space Mono para párrafos y menú */
+p,
+.navbar-nav a {
+  font-family: 'Space Mono', monospace;
 }
 
-.nav-toggler {
+/* Texto fuera de las tarjetas en negro */
+body,
+section,
+h2, h3, h4, h5, h6,
+p,
+.navbar-nav a {
+  color: #000000;
+}
+
+/* Texto dentro de tarjetas sigue blanco */
+.card,
+.card h3,
+.card p,
+.card a {
+  color: #ffffff;
+}
+
+/* Carrusel: texto negro */
+.carousel-caption h5,
+.carousel-caption p,
+.carousel-caption a {
+  color: #000000 !important;
+}
+
+.btn-primary {
+    background-color: #722f37;
+    color: #d4af37;
     border: none;
-    font-size: 1.25rem;
 }
 
-.navbar-toggler:focus, .btn-close:focus {
-    box-shadow: none;
-    outline: none;
+.btn-primary:hover {
+    background-color: #8b3a42;
+    color: #fff;
+}
+.btn-secondary {
+    background-color: #d4af37;
+    color: #722f37;
+    border: none;
 }
 
-.nav-link {
-    color: #666777;
-    font-weight: 500;
-    position: relative;
-}
-
-.nav-link:hover, .nav-link.active {
-    color: #000000; /* negro */
-}
-
-@media(min-width: 991px){
-    .nav-link::before {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 0%;
-        height: 2px;
-        background-color: #d4af37; /* dorado */
-        transition: width 0.3s ease; 
-    }
-
-    .nav-link:hover::before,
-    .nav-link.active::before {
-        width: 100%; 
-    }
-}
-
-/* ---------------- BOTONES ---------------- */
-.btn-success {
-  background-color: #722f37 !important; /* Borgoña */
-  border-color: #722f37 !important;
-  color: #f5f1eb !important; /* Blanco marfil */
-}
-.btn-success:hover {
-  background-color: #8b3a42 !important; /* Borgoña claro */
-  border-color: #8b3a42 !important;
-  color: #ffffff !important;
-}
-
-.btn-outline-light {
-  color: #d4af37 !important; /* Dorado */
-  border-color: #d4af37 !important;
-}
-.btn-outline-light:hover {
-  background-color: #d4af37 !important;
-  color: #722f37 !important; /* Borgoña */
-}
-
-/* ---------------- HERO ---------------- */
-.hero-section {
-  background: url(/ASSETS/IMG/tesla2.jpg) no-repeat center;
-  background-size: cover;
-  width: 100%;
-  height: 100vh;
-  position: relative;
-  color: #f5f1eb; /* Blanco marfil */
-  text-shadow: 2px 2px 4px #000000; /* Sombra negra */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-/* Difuminado del Hero hacia la siguiente sección */
-.hero-section::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 150px;
-  background: linear-gradient(to bottom, rgba(245, 241, 235, 0) 0%, #f5f1eb 100%);
-}
-
-/* ---------------- SECCIONES ---------------- */
-.section {
-  position: relative;
-  padding: 80px 0;
-}
-
-/* Difuminado hacia marfil */
-.section::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 120px;
-  background: linear-gradient(to bottom, rgba(245, 241, 235, 0) 0%, #f5f1eb 100%);
-  pointer-events: none;
-}
-
-/* Difuminado hacia borgoña (para secciones oscuras) */
-.section-borgona::after {
-  background: linear-gradient(to bottom, rgba(114, 47, 55, 0) 0%, #722f37 100%);
-}
-
-/* ---------------- ESTILOS EXTRA ---------------- */
-.highlight {
-  color: #d4af37; /* Dorado */
-}
-
-.bg-marfil {
-  background-color: #f5f1eb; /* blanco marfil */
-}
-
-.text-borgona {
-  color: #722f37; /* borgoña */
-}
-
-.custom-card {
-  background-color: #e8ddd4; /* beige claro */
-  border: none;
-  border-radius: 12px;
-  box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.custom-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0px 6px 16px rgba(0,0,0,0.15);
-}
-
-.custom-card h4 {
-  color: #722f37; /* borgoña */
-  border-bottom: 2px solid #d4af37; /* dorado */
-  display: inline-block;
-  padding-bottom: 5px;
-}
-
-/* ---------------- FUENTE ---------------- */
-body {
-  font-family: 'Yusei Magic', sans-serif;
-  font-weight: 400;
-}
-
-h1, h2, h3 {
-  font-family: 'Yusei Magic', sans-serif;
-  font-weight: 700;
-}
-
-.hero-section h1 {
-  font-family: 'Yusei Magic', sans-serif;
-  font-weight: 700;
-}
-
-.highlight {
-  font-family: 'Yusei Magic', sans-serif;
-  color: #d4af37;
+.btn-secondary:hover {
+    background-color: #8b3a42;
+    color: #fff;
 }

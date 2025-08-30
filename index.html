@@ -9,125 +9,434 @@
     <!-- bootstrap css -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-    <link rel="stylesheet" href="">
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="ASSETS/CSS/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Honk&display=swap" rel="stylesheet">
 </head>
 
 <body>
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg fixed-top bg-white shadow-sm">
-  <div class="container-fluid">
-    <!-- Logo -->
-    <a class="navbar-brand fw-bold text-success" href="#">
-      <img src="ASSETS/IMG/logo.png" alt="Logo" width="90" height="60" class="d-inline-block align-text-top">
-    </a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
 
-    <!-- Botón hamburguesa -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
-      data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+            <a href="#" class="navbar-brand"><span class="text-primary"></span>Nikola Tesla I.E.P</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarS"
+                aria-controls="navbarS" aria-expanded="false" aria-label="toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-    <!-- Menú -->
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
-      aria-labelledby="offcanvasNavbarLabel">
-      <div class="offcanvas-header d-lg-none">
-        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Logo</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-      </div>
+            <div class="collapse navbar-collapse" id="navbarS">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active">Cursos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active">Profesores</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active">Academico</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active">contacto</a>
+                    </li>
+                </ul>
 
-      <div class="offcanvas-body">
-        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-          <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Academico</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Profesores</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Tienda</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Contacto</a></li>
-        </ul>
-
-        <!-- Botón Login -->
-        <div class="text-center mt-3 mt-lg-0">
-          <a href="#" class="login-button">Login</a>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-</nav>
 
-<!-- End Navbar -->
+    </nav>
 
-<!-- Hero Section -->
-<section class="hero-section d-flex align-items-center text-white" style="min-height: 100vh; background: url('ASSETS/IMG/fondo5.jpg') center/cover no-repeat;">
-  <div class="container text-center">
-    <h1 class="display-3 fw-bold">
-      Educando <span class="highlight">Jovenes</span><br>
-      y <span class="highlight">Forjando el camino</span>
-    </h1>
-    <div class="mt-4">
-      <a href="#" class="btn btn-success btn-lg px-4">Comenzar</a>
-      <a href="#" class="btn btn-outline-light btn-lg px-4 ms-3">Más Info</a>
-    </div>
-  </div>
-  </section>
+    <div id="carouselE" class="carousel slide" data-bs-ride="carousel">
 
-<!-- Sección 2: Texto + Imagen -->
-<section class="py-5">
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col-lg-6">
-        <h2 class="fw-bold">Colegio Nikola Tesla</h2>
-        <p class="mt-3">
-           El Colegio <strong>Nikola Tesla</strong> es una institución educativa comprometida con la formación integral de nuestros estudiantes. 
-          Nuestra misión es fomentar el pensamiento crítico, la innovación y los valores, preparando a los jóvenes para enfrentar los retos del futuro.
-        </p>
-        <a href="#" class="btn btn-success">Saber más</a>
-      </div>
-      <div class="col-lg-6 text-center">
-        <img src="ASSETS/IMG/tesla2.jpg" class="img-fluid rounded shadow" alt="Agencia Digital">
-      </div>
-    </div>
-  </div>
-</section>
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselE" data-bs-slide-to="0" class="active" aria-current="true"
+                aria-label="Slide 1"></button>
 
-<!-- Sección 3: Servicios -->
+            <button type="button" data-bs-target="#carouselE" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
 
-<section class="py-5 bg-marfil">
-  <div class="container text-center">
-    <h2 class="fw-bold mb-5 text-borgona">Nuestras áreas de formación</h2>
-    <div class="row g-4">
-      
-      <div class="col-md-4">
-        <div class="card custom-card p-4 h-100">
-          <h4 class="fw-bold text-borgona">Inicial y Primaria</h4>
-          <p>Brindamos una base sólida en valores, comunicación, matemáticas y ciencias, con un enfoque en el aprendizaje creativo.</p>
+            <button type="button" data-bs-target="#carouselE" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
+
         </div>
-      </div>
+        
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="ASSETS/IMG/fondo-index.jpg" class="d-block w-100" alt="">
+                <div class="carousel-caption">
+                    <h5>Bienvenidos al Colegio Nikola Tesla</h5>
+                    <p>
+                        Somos un colegio comprometido con la educación integral de nuestros estudiantes, 
+                        fomentando la creatividad, la innovación y el pensamiento crítico desde temprana edad.
+                    </p>
+                    <a href="#" class="btn btn-primary mt-3">mas informacion</a>
+                </div>
+            </div>
 
-      <div class="col-md-4">
-        <div class="card custom-card p-4 h-100">
-          <h4 class="fw-bold text-borgona">Secundaria</h4>
-          <p>Formación académica integral con énfasis en ciencias, tecnología e innovación para preparar a los líderes del mañana.</p>
+            <div class="carousel-item">
+                <img src="ASSETS/IMG/fondo4.jpg" class="d-block w-100" alt="">
+                <div class="carousel-caption">
+                    <h5>Innovación y Tecnología</h5>
+                    <p>
+                        ontamos con laboratorios y aulas digitales donde los estudiantes desarrollan 
+                        habilidades en ciencias y tecnología.
+                    </p>
+                    <a href="#" class="btn btn-primary mt-3">mas informacion</a>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <img src="ASSETS/IMG/fondo5.jpg" class="d-block w-100" alt="">
+                <div class="carousel-caption">
+                    <h5>Educación Integral</h5>
+                    <p>
+                        Fomentamos el aprendizaje académico y las habilidades sociales mediante actividades 
+                        culturales y deportivas.
+                    </p>
+                    <a href="#" class="btn btn-primary mt-3">mas informacion</a>
+                </div>
+            </div>
         </div>
-      </div>
 
-      <div class="col-md-4">
-        <div class="card custom-card p-4 h-100">
-          <h4 class="fw-bold text-borgona">Actividades Extracurriculares</h4>
-          <p>Deportes, arte, música y talleres tecnológicos que fortalecen las habilidades sociales y el desarrollo personal.</p>
-        </div>
-      </div>
+        <button class="carousel-control-prev" type="button"
+        data-bs-target="#carouselE"
+        data-bs-slide="prev" 
+        >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">previous</span>
+        </button>
 
+        <button class="carousel-control-next" type="button"
+        data-bs-target="#carouselE"
+        data-bs-slide="next" 
+        >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">next</span>
+        </button>
     </div>
-  </div>
-</section>
 
+    <section class="about section-padding">
 
-<!-- End hero section -->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-12 col-12">
+                    <div class="about-img">
+                        <img src="ASSETS/IMG/tesla1-Photoroom.png" class="img-fluid" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-12 col-12 ps-lg-5 mt-md-5">
+                     <div class="about-text text-white">
+                        <h2>Educación de calidad<br>para un futuro brillante</h2>
+                        <p>
+                          Nuestro colegio ofrece programas académicos innovadores que 
+                          desarrollan competencias en ciencia, tecnología, humanidades
+                          y valores, preparando a los estudiantes para los retos del siglo XXI. 
+                          Contamos con laboratorios de última generación, aulas interactivas y 
+                          actividades extracurriculares que fomentan la creatividad, el pensamiento crítico 
+                          y el trabajo en equipo. Nuestro equipo de docentes especializados guía a 
+                          cada estudiante para que descubra su potencial, aprenda a resolver problemas 
+                          de manera efectiva y se convierta en un ciudadano responsable y comprometido 
+                          con su comunidad. Además, promovemos la investigación, el emprendimiento y la educación 
+                          digital, asegurando que cada alumno esté preparado 
+                          para un mundo globalizado y en constante transformación.
+                          </p>
+                        <a href="#" class="btn btn-primary">mas informacion</a>
+                     </div>   
+                </div>
+            </div>
+        </div>
 
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+    </section>
+
+    <section class="services section-padding">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-ms-12">
+                    <div class="section-header text-center text-white pb-5">
+                        <h2>nuestros servicios</h2>
+                        <p>
+                            Contamos con laboratorios, aulas digitales, actividades extracurriculares 
+                            y programas de apoyo académico para garantizar un aprendizaje completo.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-12 col-lg-4">
+                    <div class="card text-white text-center bg-dark pb-2">
+                        <div class="card-body">
+                            <i class="bi bi-laptop"></i>
+                            <h3 class="card-title">Laboratorios de Ciencia</h3>
+                            <p class="lead">
+                                Espacios equipados para fomentar la experimentación y la investigación 
+                                en ciencias y tecnología.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-12 col-lg-4">
+                    <div class="card text-white text-center bg-dark pb-2">
+                        <div class="card-body">
+                            <i class="bi bi-wifi"></i>
+                            <h3 class="card-title">Aulas Digitales</h3>
+                            <p class="lead">
+                                Contamos con tecnología y conectividad que permiten un aprendizaje 
+                                interactivo y actualizado.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-12 col-lg-4">
+                    <div class="card text-white text-center bg-dark pb-2">
+                        <div class="card-body">
+                            <i class="bi bi-tv"></i>
+                            <h3 class="card-title">Actividades Extracurriculares</h3>
+                            <p class="lead">
+                                Programas deportivos, culturales y artísticos para un desarrollo integral 
+                                de nuestros estudiantes.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="portafolio section-padding">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-header text-center text-white pb-5">
+                        <h2>Proyectos y Evento</h2>
+                        <p>
+                            Nuestros estudiantes participan en ferias de ciencia, exposiciones tecnológicas 
+                            y actividades que impulsan la creatividad y el aprendizaje práctico.
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 md-12 col-lg-4">
+                    <div class="card text-light text-center bg-dark pb-2">
+                        <div class="card-body text-white">
+                            <div class="img-area mb-4">
+                                <img src="ASSETS/IMG/fondo4.jpg" class="img-fluid" alt="">
+                            </div>
+                            <h3>Proyectos de Ciencia</h3>
+                            <p>
+                                Los alumnos desarrollan proyectos innovadores aplicando conocimientos de ciencia 
+                                y tecnología.
+                            </p>
+
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 md-12 col-lg-4">
+                    <div class="card text-light text-center bg-dark pb-2">
+                        <div class="card-body text-white">
+                            <div class="img-area mb-4">
+                                <img src="img/project-2.jpg" class="img-fluid" alt="">
+                            </div>
+                            <h3>Ferias de Conocimiento</h3>
+                            <p>
+                                Exposiciones donde los estudiantes presentan sus proyectos y experimentos, 
+                                fomentando la curiosidad científica. 
+                            </p>
+
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 md-12 col-lg-4">
+                    <div class="card text-light text-center bg-dark pb-2">
+                        <div class="card-body text-white">
+                            <div class="img-area mb-4">
+                                <img src="img/project-3.jpg" class="img-fluid" alt="">
+                            </div>
+                            <h3>Actividades Extracurriculares</h3>
+                            <p>
+                                Participación en deportes, arte y cultura para fortalecer las habilidades sociales 
+                                y personales.
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="team section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-header text-center text-white pb-5">
+                        <h2>Nuestro Equipo</h2>
+                        <p>
+                            Contamos con un equipo de docentes altamente capacitados y comprometidos con la 
+                            educación integral de nuestros estudiantes.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card text-center bg-dark">
+                        <div class="card-body text-white">
+                            <img src="img/team-1.jpg" class="img-fluid rounded-circle" alt="">
+                            <h3 class="card-title py-2">Prof. Juan Pérez</h3>
+                            <p class="card-text">
+                                Especialista en Matemática y Física, fomenta el pensamiento crítico y la creatividad.
+                            </p>
+
+                            <p class="socials">
+                                <i class="bi bi-twitter text-white mx-1"></i>
+                                <i class="bi bi-facebook text-white mx-1"></i>
+                                <i class="bi bi-linkedin text-white mx-1"></i>
+                                <i class="bi bi-instagram text-white mx-1"></i>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card text-center bg-dark">
+                        <div class="card-body text-white">
+                            <img src="img/team-2.jpg" class="img-fluid rounded-circle" alt="">
+                            <h3 class="card-title py-2">Profa. Ana García</h3>
+                            <p class="card-text">
+                              Experta en Ciencias Naturales, promueve la experimentación y el aprendizaje práctico.
+
+                            </p>
+
+                            <p class="socials">
+                                <i class="bi bi-twitter text-white mx-1"></i>
+                                <i class="bi bi-facebook text-white mx-1"></i>
+                                <i class="bi bi-linkedin text-white mx-1"></i>
+                                <i class="bi bi-instagram text-white mx-1"></i>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card text-center bg-dark">
+                        <div class="card-body text-white">
+                            <img src="img/team-3.jpg" class="img-fluid rounded-circle" alt="">
+                            <h3 class="card-title py-2">Prof. Luis Rodríguez</h3>
+                            <p class="card-text">
+                              Docente en Tecnología y Robótica, incentiva la innovación y el pensamiento lógico.
+
+                            </p>
+
+                            <p class="socials">
+                                <i class="bi bi-twitter text-white mx-1"></i>
+                                <i class="bi bi-facebook text-white mx-1"></i>
+                                <i class="bi bi-linkedin text-white mx-1"></i>
+                                <i class="bi bi-instagram text-white mx-1"></i>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card text-center bg-dark">
+                        <div class="card-body text-white">
+                            <img src="img/team-4.jpg" class="img-fluid rounded-circle" alt="">
+                            <h3 class="card-title py-2">Profa. Carla Fernández</h3>
+                            <p class="card-text">
+                              Especialista en Humanidades y Valores, fomenta la formación integral y ética.
+
+                            </p>
+
+                            <p class="socials">
+                                <i class="bi bi-twitter text-white mx-1"></i>
+                                <i class="bi bi-facebook text-white mx-1"></i>
+                                <i class="bi bi-linkedin text-white mx-1"></i>
+                                <i class="bi bi-instagram text-white mx-1"></i>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+    <section class="contact section-padding">
+        <div class="container mt-5 mb-5">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-header text-center text-white pb-5">
+                        <h2>contacto</h2>
+                        <p>
+                            Para consultas sobre matrícula, programas académicos o actividades, 
+                            comunícate con nosotros y te atenderemos con gusto.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+            
+            <div class="row m-0 ">
+                <div class="col-md-12 p-0 pt-4 pb-4">
+                    <form action="#" class="bg-dark p-4 m-auto">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" placeholder="nombre">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" placeholder="correo">
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="mb-3">
+                                    <textarea class="form-control" placeholder="mensaje" rows="3"></textarea>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary btm-lg btn-block mt-3">enviar</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+    <footer class="bg-dark p-2 text-center">
+        <div class="container">
+            <p class="text-white">© 2025 Colegio Nikola Tesla E.I.P</p>
+        </div>
+    </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
   integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
   crossorigin="anonymous"></script>
 </body>
