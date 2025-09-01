@@ -1,0 +1,187 @@
+/* Updated color scheme to match burgundy/gold theme */
+@import url("https://fonts.googleapis.com/css2?family=Honk&family=Space+Mono:wght@400;700&display=swap");
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Honk", sans-serif;
+  color: #722f37;
+}
+
+* {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+p {
+  font-family: "Space Mono", monospace;
+}
+
+body {
+  background: #f5f1eb;
+  color: #000000;
+}
+
+/* Updated course cards with new color scheme */
+.course-card {
+  border: 1px solid #e8ddd4;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 20px;
+  background: #faf8f3;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Updated course header with burgundy gradient */
+.course-header {
+  background: linear-gradient(135deg, #722f37 0%, #8b3a42 100%);
+  color: white;
+  border-radius: 15px 15px 0 0;
+  padding: 20px;
+}
+
+/* Updated status colors to match theme */
+.course-status {
+  display: inline-block;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.status-active {
+  background: #d4af37;
+  color: #722f37;
+}
+
+.status-inactive {
+  background: #8b3a42;
+  color: white;
+}
+
+.status-pending {
+  background: #ff6700;
+  color: white;
+}
+
+/* Updated action buttons with new styling */
+.btn-action {
+  margin: 0 2px;
+  border-radius: 20px;
+  padding: 5px 15px;
+  font-size: 0.8rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+/* Updated search container */
+.search-container {
+  background: #faf8f3;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  border: 1px solid #e8ddd4;
+}
+
+/* Updated table container */
+.table-container {
+  background: #faf8f3;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  border: 1px solid #e8ddd4;
+}
+
+/* Updated table header with burgundy theme */
+.table thead th {
+  background: linear-gradient(135deg, #722f37 0%, #8b3a42 100%);
+  color: white;
+  border: none;
+  padding: 15px;
+  font-family: "Honk", sans-serif;
+}
+
+.table tbody tr:hover {
+  background-color: #e8ddd4;
+}
+
+/* Updated modal header */
+.modal-header {
+  background: linear-gradient(135deg, #722f37 0%, #8b3a42 100%);
+  color: white;
+}
+
+/* Updated form focus colors */
+.form-control:focus {
+  border-color: #d4af37;
+  box-shadow: 0 0 0 0.2rem rgba(212, 175, 55, 0.25);
+}
+
+/* Updated navbar brand */
+.navbar-brand {
+  font-weight: bold;
+  font-size: 1.5rem;
+  font-family: "Honk", sans-serif;
+  color: #d4af37;
+}
+
+/* Added button styling */
+.btn-primary {
+  padding: 0.5em 2em;
+  background: none;
+  border: 2px solid #722f37;
+  font-size: 15px;
+  color: #131313;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s;
+  border-radius: 12px;
+  background-color: #d4af37;
+  font-weight: bolder;
+  box-shadow: 0 2px 0 2px #722f37;
+}
+
+.btn-primary:hover {
+  background-color: #8b3a42;
+  color: #fff;
+  box-shadow: 0 2px 0 2px #722f37;
+}
+
+.btn-primary::before {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 120%;
+  background-color: #ff6700;
+  top: 50%;
+  transform: skewX(30deg) translate(-150%, -50%);
+  transition: all 0.5s;
+}
+
+.btn-primary:hover::before {
+  transform: skewX(30deg) translate(150%, -50%);
+  transition-delay: all 0.1s;
+}
+
+.btn-secondary {
+  background-color: #d4af37;
+  color: #722f37;
+  border: none;
+  font-weight: bold;
+}
+
+.btn-secondary:hover {
+  background-color: #8b3a42;
+  color: #fff;
+}

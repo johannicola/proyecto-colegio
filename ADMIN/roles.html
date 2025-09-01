@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Roles - Sistema Educativo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="roles.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="dashboard.html">
+                <i class="fas fa-graduation-cap me-2"></i>Sistema Educativo
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html"><i class="fas fa-tachometer-alt me-1"></i>Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="usuarios.html"><i class="fas fa-users me-1"></i>Usuarios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cursos.html"><i class="fas fa-book me-1"></i>Cursos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="matriculas.html"><i class="fas fa-user-graduate me-1"></i>Matrículas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="libros.html"><i class="fas fa-book-open me-1"></i>Libros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ventas.html"><i class="fas fa-shopping-cart me-1"></i>Ventas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="reportes.html"><i class="fas fa-chart-bar me-1"></i>Reportes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="roles.html"><i class="fas fa-user-shield me-1"></i>Roles</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-user-circle me-1"></i>Admin
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i>Configuración</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt me-2"></i>Cerrar Sesión</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid py-4">
+        <div class="row">
+            <div class="col-12">
+                <div class="page-header">
+                    <h1><i class="fas fa-user-shield me-3"></i>Gestión de Roles</h1>
+                    <p>Administra la asignación y gestión de roles del sistema (administrador, docente, estudiante)</p>
+                </div>
+            </div>
+        </div>
+
+         Estadísticas de Roles 
+        <div class="row mb-4">
+            <div class="col-md-3">
+                <div class="stats-card">
+                    <div class="stats-icon">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <div class="stats-content">
+                        <h3>5</h3>
+                        <p>Administradores</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stats-card">
+                    <div class="stats-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <div class="stats-content">
+                        <h3>25</h3>
+                        <p>Docentes</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stats-card">
+                    <div class="stats-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <div class="stats-content">
+                        <h3>245</h3>
+                        <p>Estudiantes</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stats-card">
+                    <div class="stats-icon">
+                        <i class="fas fa-users-cog"></i>
+                    </div>
+                    <div class="stats-content">
+                        <h3>275</h3>
+                        <p>Total Usuarios</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+         Roles del Sistema 
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="section-header">
+                    <h3><i class="fas fa-cogs me-2"></i>Roles del Sistema</h3>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#nuevoRolModal">
+                        <i class="fas fa-plus me-2"></i>Nuevo Rol
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-md-4">
+                <div class="role-card admin-role">
+                    <div class="role-header">
+                        <div class="role-icon">
+                            <i class="fas fa-user-shield"></i>
+                        </div>
+                        <div class="role-info">
+                            <h4>Administrador</h4>
+                            <p>Control total del sistema</p>
+                        </div>
+                        <div class="role-actions">
+                            <button class="btn btn-sm btn-outline-light" data-bs-toggle="modal" data-bs-target="#editarRolModal">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="role-body">
+                        <h6>Permisos:</h6>
+                        <ul class="permissions-list">
+                            <li><i class="fas fa-check text-success me-2"></i>Gestionar usuarios</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Gestionar cursos</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Gestionar matrículas</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Ver reportes</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Configurar sistema</li>
+                        </ul>
+                        <div class="role-stats">
+                            <span class="badge bg-light text-dark">5 usuarios asignados</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="role-card teacher-role">
+                    <div class="role-header">
+                        <div class="role-icon">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
+                        <div class="role-info">
+                            <h4>Docente</h4>
+                            <p>Gestión académica</p>
+                        </div>
+                        <div class="role-actions">
+                            <button class="btn btn-sm btn-outline-light" data-bs-toggle="modal" data-bs-target="#editarRolModal">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="role-body">
+                        <h6>Permisos:</h6>
+                        <ul class="permissions-list">
+                            <li><i class="fas fa-check text-success me-2"></i>Ver estudiantes</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Gestionar calificaciones</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Ver cursos asignados</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Generar reportes académicos</li>
+                            <li><i class="fas fa-times text-danger me-2"></i>Configurar sistema</li>
+                        </ul>
+                        <div class="role-stats">
+                            <span class="badge bg-light text-dark">25 usuarios asignados</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="role-card student-role">
+                    <div class="role-header">
+                        <div class="role-icon">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <div class="role-info">
+                            <h4>Estudiante</h4>
+                            <p>Acceso académico</p>
+                        </div>
+                        <div class="role-actions">
+                            <button class="btn btn-sm btn-outline-light" data-bs-toggle="modal" data-bs-target="#editarRolModal">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="role-body">
+                        <h6>Permisos:</h6>
+                        <ul class="permissions-list">
+                            <li><i class="fas fa-check text-success me-2"></i>Ver cursos inscritos</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Ver calificaciones</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Descargar materiales</li>
+                            <li><i class="fas fa-times text-danger me-2"></i>Gestionar usuarios</li>
+                            <li><i class="fas fa-times text-danger me-2"></i>Ver reportes administrativos</li>
+                        </ul>
+                        <div class="role-stats">
+                            <span class="badge bg-light text-dark">245 usuarios asignados</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+         Asignación de Roles 
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="section-header">
+                    <h3><i class="fas fa-users me-2"></i>Asignación de Roles</h3>
+                    <div class="d-flex gap-2">
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" class="form-control" placeholder="Buscar usuario...">
+                        </div>
+                        <select class="form-select filter-select">
+                            <option value="">Todos los roles</option>
+                            <option value="admin">Administrador</option>
+                            <option value="teacher">Docente</option>
+                            <option value="student">Estudiante</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="table-container">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Usuario</th>
+                                <th>Email</th>
+                                <th>Rol Actual</th>
+                                <th>Fecha Asignación</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <div class="avatar-sm me-2">AD</div>
+                                        <div>
+                                            <div class="fw-bold">Ana Directora</div>
+                                            <small class="text-muted">ID: USR-001</small>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>ana.directora@escuela.edu</td>
+                                <td><span class="badge role-admin">Administrador</span></td>
+                                <td>01/01/2024</td>
+                                <td><span class="badge bg-success">Activo</span></td>
+                                <td>
+                                    <div class="btn-group" role="group">
+                                        <button class="btn btn-sm btn-outline-warning" data-bs-toggle="modal" data-bs-target="#cambiarRolModal">
+                                            <i class="fas fa-exchange-alt"></i>
+                                        </button>
+                                        <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#verPermisosModal">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <div class="avatar-sm me-2">CL</div>
+                                        <div>
+                                            <div class="fw-bold">Carlos López</div>
+                                            <small class="text-muted">ID: USR-002</small>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>carlos.lopez@escuela.edu</td>
+                                <td><span class="badge role-teacher">Docente</span></td>
+                                <td>15/01/2024</td>
+                                <td><span class="badge bg-success">Activo</span></td>
+                                <td>
+                                    <div class="btn-group" role="group">
+                                        <button class="btn btn-sm btn-outline-warning" data-bs-toggle="modal" data-bs-target="#cambiarRolModal">
+                                            <i class="fas fa-exchange-alt"></i>
+                                        </button>
+                                        <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#verPermisosModal">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <div class="avatar-sm me-2">JP</div>
+                                        <div>
+                                            <div class="fw-bold">Juan Pérez</div>
+                                            <small class="text-muted">ID: USR-003</small>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>juan.perez@email.com</td>
+                                <td><span class="badge role-student">Estudiante</span></td>
+                                <td>20/01/2024</td>
+                                <td><span class="badge bg-success">Activo</span></td>
+                                <td>
+                                    <div class="btn-group" role="group">
+                                        <button class="btn btn-sm btn-outline-warning" data-bs-toggle="modal" data-bs-target="#cambiarRolModal">
+                                            <i class="fas fa-exchange-alt"></i>
+                                        </button>
+                                        <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#verPermisosModal">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                 Paginación 
+                <nav aria-label="Paginación de roles">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1">Anterior</a>
+                        </li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">Siguiente</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+     Modal Nuevo Rol 
+    <div class="modal fade" id="nuevoRolModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fas fa-plus me-2"></i>Nuevo Rol</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Nombre del Rol *</label>
+                                    <input type="text" class="form-control" required placeholder="Ej: Coordinador">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Código del Rol *</label>
+                                    <input type="text" class="form-control" required placeholder="Ej: COORD">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Descripción</label>
+                            <textarea class="form-control" rows="3" placeholder="Descripción del rol y sus responsabilidades..."></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Permisos del Sistema</label>
+                            <div class="permissions-grid">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="perm1">
+                                    <label class="form-check-label" for="perm1">Gestionar usuarios</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="perm2">
+                                    <label class="form-check-label" for="perm2">Gestionar cursos</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="perm3">
+                                    <label class="form-check-label" for="perm3">Gestionar matrículas</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="perm4">
+                                    <label class="form-check-label" for="perm4">Ver reportes</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="perm5">
+                                    <label class="form-check-label" for="perm5">Configurar sistema</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="perm6">
+                                    <label class="form-check-label" for="perm6">Gestionar biblioteca</label>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary">Crear Rol</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     Modal Cambiar Rol 
+    <div class="modal fade" id="cambiarRolModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fas fa-exchange-alt me-2"></i>Cambiar Rol</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label">Usuario</label>
+                            <input type="text" class="form-control" value="Juan Pérez" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Rol Actual</label>
+                            <input type="text" class="form-control" value="Estudiante" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Nuevo Rol *</label>
+                            <select class="form-select" required>
+                                <option value="">Seleccionar nuevo rol</option>
+                                <option value="admin">Administrador</option>
+                                <option value="teacher">Docente</option>
+                                <option value="student">Estudiante</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Motivo del Cambio</label>
+                            <textarea class="form-control" rows="3" placeholder="Razón del cambio de rol..."></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-warning">Cambiar Rol</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
