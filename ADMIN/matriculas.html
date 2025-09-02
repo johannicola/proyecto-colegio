@@ -1,1 +1,430 @@
-<!-- GESTION DE CURSOS -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Matrículas - Sistema Educativo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="../ASSETS/CSS/matriculas.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="dashboard.html">
+                <i class="fas fa-graduation-cap me-2"></i>Sistema Educativo
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html"><i class="fas fa-tachometer-alt me-1"></i>Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="usuarios.html"><i class="fas fa-users me-1"></i>Usuarios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cursos.html"><i class="fas fa-book me-1"></i>Cursos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="matriculas.html"><i class="fas fa-user-graduate me-1"></i>Matrículas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="libros.html"><i class="fas fa-book-open me-1"></i>Libros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ventas.html"><i class="fas fa-shopping-cart me-1"></i>Ventas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="reportes.html"><i class="fas fa-chart-bar me-1"></i>Reportes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="roles.html"><i class="fas fa-user-shield me-1"></i>Roles</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-user-circle me-1"></i>Admin
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i>Configuración</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt me-2"></i>Cerrar Sesión</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid py-4">
+        <div class="row">
+            <div class="col-12">
+                <div class="page-header">
+                    <h1><i class="fas fa-user-graduate me-3"></i>Gestión de Matrículas</h1>
+                    <p>Administra las inscripciones de estudiantes en los distintos cursos</p>
+                </div>
+            </div>
+        </div>
+
+         Estadísticas de Matrículas 
+        <div class="row mb-4">
+            <div class="col-md-3">
+                <div class="stats-card">
+                    <div class="stats-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <div class="stats-content">
+                        <h3>245</h3>
+                        <p>Total Matrículas</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stats-card">
+                    <div class="stats-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stats-content">
+                        <h3>18</h3>
+                        <p>Pendientes</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stats-card">
+                    <div class="stats-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="stats-content">
+                        <h3>210</h3>
+                        <p>Confirmadas</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stats-card">
+                    <div class="stats-icon">
+                        <i class="fas fa-times-circle"></i>
+                    </div>
+                    <div class="stats-content">
+                        <h3>17</h3>
+                        <p>Canceladas</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+         Filtros y Acciones 
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="action-bar">
+                    <div class="d-flex flex-wrap gap-3 align-items-center">
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#nuevaMatriculaModal">
+                            <i class="fas fa-plus me-2"></i>Nueva Matrícula
+                        </button>
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" class="form-control" placeholder="Buscar por estudiante, curso o código...">
+                        </div>
+                        <select class="form-select filter-select">
+                            <option value="">Todos los estados</option>
+                            <option value="pendiente">Pendiente</option>
+                            <option value="confirmada">Confirmada</option>
+                            <option value="cancelada">Cancelada</option>
+                        </select>
+                        <select class="form-select filter-select">
+                            <option value="">Todos los cursos</option>
+                            <option value="matematicas">Matemáticas Avanzadas</option>
+                            <option value="fisica">Física Cuántica</option>
+                            <option value="quimica">Química Orgánica</option>
+                        </select>
+                        <button class="btn btn-outline-secondary">
+                            <i class="fas fa-filter me-2"></i>Filtros Avanzados
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+         Tabla de Matrículas 
+        <div class="row">
+            <div class="col-12">
+                <div class="table-container">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Código</th>
+                                <th>Estudiante</th>
+                                <th>Curso</th>
+                                <th>Fecha Matrícula</th>
+                                <th>Estado</th>
+                                <th>Monto</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>MAT-2024-001</strong></td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <div class="avatar-sm me-2">JD</div>
+                                        <div>
+                                            <div class="fw-bold">Juan Pérez</div>
+                                            <small class="text-muted">juan.perez@email.com</small>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div class="fw-bold">Matemáticas Avanzadas</div>
+                                        <small class="text-muted">Prof. Ana García</small>
+                                    </div>
+                                </td>
+                                <td>15/01/2024</td>
+                                <td><span class="badge status-confirmada">Confirmada</span></td>
+                                <td><strong>$450.00</strong></td>
+                                <td>
+                                    <div class="btn-group" role="group">
+                                        <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#verMatriculaModal">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="btn btn-sm btn-outline-warning" data-bs-toggle="modal" data-bs-target="#editarMatriculaModal">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn btn-sm btn-outline-danger" onclick="confirmarEliminacion('MAT-2024-001')">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>MAT-2024-002</strong></td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <div class="avatar-sm me-2">MR</div>
+                                        <div>
+                                            <div class="fw-bold">María Rodríguez</div>
+                                            <small class="text-muted">maria.rodriguez@email.com</small>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div class="fw-bold">Física Cuántica</div>
+                                        <small class="text-muted">Prof. Carlos López</small>
+                                    </div>
+                                </td>
+                                <td>16/01/2024</td>
+                                <td><span class="badge status-pendiente">Pendiente</span></td>
+                                <td><strong>$520.00</strong></td>
+                                <td>
+                                    <div class="btn-group" role="group">
+                                        <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#verMatriculaModal">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="btn btn-sm btn-outline-warning" data-bs-toggle="modal" data-bs-target="#editarMatriculaModal">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn btn-sm btn-outline-danger" onclick="confirmarEliminacion('MAT-2024-002')">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>MAT-2024-003</strong></td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <div class="avatar-sm me-2">LM</div>
+                                        <div>
+                                            <div class="fw-bold">Luis Martínez</div>
+                                            <small class="text-muted">luis.martinez@email.com</small>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div class="fw-bold">Química Orgánica</div>
+                                        <small class="text-muted">Prof. Elena Ruiz</small>
+                                    </div>
+                                </td>
+                                <td>17/01/2024</td>
+                                <td><span class="badge status-cancelada">Cancelada</span></td>
+                                <td><strong>$380.00</strong></td>
+                                <td>
+                                    <div class="btn-group" role="group">
+                                        <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#verMatriculaModal">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="btn btn-sm btn-outline-warning" data-bs-toggle="modal" data-bs-target="#editarMatriculaModal">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn btn-sm btn-outline-danger" onclick="confirmarEliminacion('MAT-2024-003')">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                 Paginación 
+                <nav aria-label="Paginación de matrículas">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1">Anterior</a>
+                        </li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">Siguiente</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+     Modal Nueva Matrícula 
+    <div class="modal fade" id="nuevaMatriculaModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fas fa-plus me-2"></i>Nueva Matrícula</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Estudiante *</label>
+                                    <select class="form-select" required>
+                                        <option value="">Seleccionar estudiante</option>
+                                        <option value="1">Juan Pérez - juan.perez@email.com</option>
+                                        <option value="2">María Rodríguez - maria.rodriguez@email.com</option>
+                                        <option value="3">Luis Martínez - luis.martinez@email.com</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Curso *</label>
+                                    <select class="form-select" required>
+                                        <option value="">Seleccionar curso</option>
+                                        <option value="1">Matemáticas Avanzadas - $450.00</option>
+                                        <option value="2">Física Cuántica - $520.00</option>
+                                        <option value="3">Química Orgánica - $380.00</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Fecha de Matrícula *</label>
+                                    <input type="date" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Estado *</label>
+                                    <select class="form-select" required>
+                                        <option value="pendiente">Pendiente</option>
+                                        <option value="confirmada">Confirmada</option>
+                                        <option value="cancelada">Cancelada</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Monto</label>
+                                    <input type="number" class="form-control" step="0.01" placeholder="0.00">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Descuento (%)</label>
+                                    <input type="number" class="form-control" min="0" max="100" placeholder="0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Observaciones</label>
+                            <textarea class="form-control" rows="3" placeholder="Observaciones adicionales..."></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary">Registrar Matrícula</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     Modal Ver Matrícula 
+    <div class="modal fade" id="verMatriculaModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fas fa-eye me-2"></i>Detalles de Matrícula</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6>Información del Estudiante</h6>
+                            <p><strong>Nombre:</strong> Juan Pérez</p>
+                            <p><strong>Email:</strong> juan.perez@email.com</p>
+                            <p><strong>Teléfono:</strong> +1 234 567 8900</p>
+                        </div>
+                        <div class="col-md-6">
+                            <h6>Información del Curso</h6>
+                            <p><strong>Curso:</strong> Matemáticas Avanzadas</p>
+                            <p><strong>Profesor:</strong> Ana García</p>
+                            <p><strong>Duración:</strong> 3 meses</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6>Detalles de Matrícula</h6>
+                            <p><strong>Código:</strong> MAT-2024-001</p>
+                            <p><strong>Fecha:</strong> 15/01/2024</p>
+                            <p><strong>Estado:</strong> <span class="badge status-confirmada">Confirmada</span></p>
+                        </div>
+                        <div class="col-md-6">
+                            <h6>Información de Pago</h6>
+                            <p><strong>Monto:</strong> $450.00</p>
+                            <p><strong>Descuento:</strong> 0%</p>
+                            <p><strong>Total:</strong> $450.00</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary">Imprimir</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function confirmarEliminacion(codigo) {
+            if (confirm('¿Está seguro de que desea eliminar la matrícula ' + codigo + '?')) {
+                alert('Matrícula eliminada correctamente');
+            }
+        }
+    </script>
+</body>
+</html>

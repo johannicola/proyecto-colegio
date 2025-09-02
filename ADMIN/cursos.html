@@ -1,1 +1,347 @@
-<!-- GESTION DE CURSOS -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Cursos - Sistema Administrativo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="../ASSETS/CSS/cursos.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><i class="fas fa-graduation-cap me-2"></i>Sistema Educativo</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-user-circle me-1"></i>Administrador
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-user-cog me-2"></i>Perfil</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i>Configuración</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt me-2"></i>Cerrar Sesión</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-3 col-lg-2 d-md-block sidebar collapse">
+                <div class="position-sticky pt-3">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" href="dashboard.html">
+                                <i class="fas fa-tachometer-alt me-2"></i>Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="usuarios.html">
+                                <i class="fas fa-users me-2"></i>Usuarios
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="cursos.html">
+                                <i class="fas fa-book-open me-2"></i>Cursos
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="matriculas.html">
+                                <i class="fas fa-user-graduate me-2"></i>Matrículas
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="libros.html">
+                                <i class="fas fa-book me-2"></i>Libros
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="ventas.html">
+                                <i class="fas fa-shopping-cart me-2"></i>Ventas
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="roles.html">
+                                <i class="fas fa-user-shield me-2"></i>Roles
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="reportes.html">
+                                <i class="fas fa-chart-bar me-2"></i>Reportes
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">Gestión de Cursos</h1>
+                    <div class="btn-toolbar mb-2 mb-md-0">
+                        <div class="btn-group me-2">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cursoModal">
+                                <i class="fas fa-plus me-1"></i>Nuevo Curso
+                            </button>
+                            <button type="button" class="btn btn-outline-secondary">
+                                <i class="fas fa-download me-1"></i>Exportar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filtros y búsqueda -->
+                <div class="row mb-4">
+                    <div class="col-md-4">
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-search"></i></span>
+                            <input type="text" class="form-control" placeholder="Buscar cursos..." id="searchInput">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <select class="form-select" id="categoriaFilter">
+                            <option value="">Todas las categorías</option>
+                            <option value="programacion">Programación</option>
+                            <option value="diseno">Diseño</option>
+                            <option value="marketing">Marketing</option>
+                            <option value="idiomas">Idiomas</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <select class="form-select" id="estadoFilter">
+                            <option value="">Todos los estados</option>
+                            <option value="activo">Activo</option>
+                            <option value="inactivo">Inactivo</option>
+                            <option value="borrador">Borrador</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <button type="button" class="btn btn-outline-secondary w-100" onclick="limpiarFiltros()">
+                            <i class="fas fa-times me-1"></i>Limpiar
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Lista de cursos -->
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">Lista de Cursos</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Nombre del Curso</th>
+                                        <th>Categoría</th>
+                                        <th>Instructor</th>
+                                        <th>Duración</th>
+                                        <th>Precio</th>
+                                        <th>Estado</th>
+                                        <th>Estudiantes</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="cursosTableBody">
+                                    <tr>
+                                        <td>001</td>
+                                        <td>JavaScript Fundamentals</td>
+                                        <td><span class="badge bg-info">Programación</span></td>
+                                        <td>Juan Pérez</td>
+                                        <td>40 horas</td>
+                                        <td>$299</td>
+                                        <td><span class="badge bg-success">Activo</span></td>
+                                        <td>45</td>
+                                        <td>
+                                            <div class="btn-group" role="group">
+                                                <button class="btn btn-sm btn-outline-primary" onclick="verCurso(1)" title="Ver">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-outline-warning" onclick="editarCurso(1)" title="Editar">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-outline-danger" onclick="eliminarCurso(1)" title="Eliminar">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>002</td>
+                                        <td>Diseño UX/UI Avanzado</td>
+                                        <td><span class="badge bg-warning">Diseño</span></td>
+                                        <td>María García</td>
+                                        <td>60 horas</td>
+                                        <td>$399</td>
+                                        <td><span class="badge bg-success">Activo</span></td>
+                                        <td>32</td>
+                                        <td>
+                                            <div class="btn-group" role="group">
+                                                <button class="btn btn-sm btn-outline-primary" onclick="verCurso(2)" title="Ver">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-outline-warning" onclick="editarCurso(2)" title="Editar">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-outline-danger" onclick="eliminarCurso(2)" title="Eliminar">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>003</td>
+                                        <td>Marketing Digital</td>
+                                        <td><span class="badge bg-success">Marketing</span></td>
+                                        <td>Carlos López</td>
+                                        <td>35 horas</td>
+                                        <td>$249</td>
+                                        <td><span class="badge bg-warning">Borrador</span></td>
+                                        <td>0</td>
+                                        <td>
+                                            <div class="btn-group" role="group">
+                                                <button class="btn btn-sm btn-outline-primary" onclick="verCurso(3)" title="Ver">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-outline-warning" onclick="editarCurso(3)" title="Editar">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-outline-danger" onclick="eliminarCurso(3)" title="Eliminar">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Modal para crear/editar curso -->
+    <div class="modal fade" id="cursoModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cursoModalTitle">Nuevo Curso</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="cursoForm">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="nombreCurso" class="form-label">Nombre del Curso</label>
+                                <input type="text" class="form-control" id="nombreCurso" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="categoriaCurso" class="form-label">Categoría</label>
+                                <select class="form-select" id="categoriaCurso" required>
+                                    <option value="">Seleccionar categoría</option>
+                                    <option value="programacion">Programación</option>
+                                    <option value="diseno">Diseño</option>
+                                    <option value="marketing">Marketing</option>
+                                    <option value="idiomas">Idiomas</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="instructorCurso" class="form-label">Instructor</label>
+                                <select class="form-select" id="instructorCurso" required>
+                                    <option value="">Seleccionar instructor</option>
+                                    <option value="1">Juan Pérez</option>
+                                    <option value="2">María García</option>
+                                    <option value="3">Carlos López</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="duracionCurso" class="form-label">Duración (horas)</label>
+                                <input type="number" class="form-control" id="duracionCurso" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="precioCurso" class="form-label">Precio</label>
+                                <input type="number" class="form-control" id="precioCurso" step="0.01" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="estadoCurso" class="form-label">Estado</label>
+                                <select class="form-select" id="estadoCurso" required>
+                                    <option value="borrador">Borrador</option>
+                                    <option value="activo">Activo</option>
+                                    <option value="inactivo">Inactivo</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="descripcionCurso" class="form-label">Descripción</label>
+                            <textarea class="form-control" id="descripcionCurso" rows="4"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" onclick="guardarCurso()">Guardar Curso</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function verCurso(id) {
+            alert('Ver detalles del curso ID: ' + id);
+        }
+
+        function editarCurso(id) {
+            document.getElementById('cursoModalTitle').textContent = 'Editar Curso';
+            const modal = new bootstrap.Modal(document.getElementById('cursoModal'));
+            modal.show();
+        }
+
+        function eliminarCurso(id) {
+            if (confirm('¿Está seguro de que desea eliminar este curso?')) {
+                alert('Curso eliminado ID: ' + id);
+            }
+        }
+
+        function guardarCurso() {
+            const form = document.getElementById('cursoForm');
+            if (form.checkValidity()) {
+                alert('Curso guardado exitosamente');
+                const modal = bootstrap.Modal.getInstance(document.getElementById('cursoModal'));
+                modal.hide();
+                form.reset();
+            } else {
+                form.reportValidity();
+            }
+        }
+
+        function limpiarFiltros() {
+            document.getElementById('searchInput').value = '';
+            document.getElementById('categoriaFilter').value = '';
+            document.getElementById('estadoFilter').value = '';
+        }
+
+        document.getElementById('searchInput').addEventListener('input', filtrarCursos);
+        document.getElementById('categoriaFilter').addEventListener('change', filtrarCursos);
+        document.getElementById('estadoFilter').addEventListener('change', filtrarCursos);
+
+        function filtrarCursos() {
+            console.log('Filtrando cursos...');
+        }
+    </script>
+</body>
+</html>
+

@@ -1,1 +1,462 @@
 <!-- GESTION DE LIBROS -->
+ <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Libros - Sistema Administrativo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="../ASSETS/CSS/libros.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><i class="fas fa-graduation-cap me-2"></i>Sistema Educativo</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-user-circle me-1"></i>Administrador
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-user-cog me-2"></i>Perfil</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i>Configuración</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt me-2"></i>Cerrar Sesión</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-3 col-lg-2 d-md-block sidebar collapse">
+                <div class="position-sticky pt-3">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" href="dashboard.html">
+                                <i class="fas fa-tachometer-alt me-2"></i>Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="usuarios.html">
+                                <i class="fas fa-users me-2"></i>Usuarios
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="cursos.html">
+                                <i class="fas fa-book-open me-2"></i>Cursos
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="matriculas.html">
+                                <i class="fas fa-user-graduate me-2"></i>Matrículas
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="libros.html">
+                                <i class="fas fa-book me-2"></i>Libros
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="ventas.html">
+                                <i class="fas fa-shopping-cart me-2"></i>Ventas
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="roles.html">
+                                <i class="fas fa-user-shield me-2"></i>Roles
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="reportes.html">
+                                <i class="fas fa-chart-bar me-2"></i>Reportes
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">Gestión de Libros</h1>
+                    <div class="btn-toolbar mb-2 mb-md-0">
+                        <div class="btn-group me-2">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#libroModal">
+                                <i class="fas fa-plus me-1"></i>Nuevo Libro
+                            </button>
+                            <button type="button" class="btn btn-outline-secondary">
+                                <i class="fas fa-download me-1"></i>Exportar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                 Estadísticas rápidas 
+                <div class="row mb-4">
+                    <div class="col-md-3">
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <i class="fas fa-book fa-2x text-primary mb-2"></i>
+                                <h5 class="card-title">Total Libros</h5>
+                                <h3 class="text-primary">1,247</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <i class="fas fa-check-circle fa-2x text-success mb-2"></i>
+                                <h5 class="card-title">Disponibles</h5>
+                                <h3 class="text-success">892</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <i class="fas fa-hand-holding fa-2x text-warning mb-2"></i>
+                                <h5 class="card-title">Prestados</h5>
+                                <h3 class="text-warning">245</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <i class="fas fa-exclamation-triangle fa-2x text-danger mb-2"></i>
+                                <h5 class="card-title">Vencidos</h5>
+                                <h3 class="text-danger">110</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                 Filtros y búsqueda 
+                <div class="row mb-4">
+                    <div class="col-md-4">
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-search"></i></span>
+                            <input type="text" class="form-control" placeholder="Buscar por título, autor, ISBN..." id="searchInput">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <select class="form-select" id="categoriaFilter">
+                            <option value="">Todas las categorías</option>
+                            <option value="programacion">Programación</option>
+                            <option value="matematicas">Matemáticas</option>
+                            <option value="historia">Historia</option>
+                            <option value="literatura">Literatura</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <select class="form-select" id="estadoFilter">
+                            <option value="">Todos los estados</option>
+                            <option value="disponible">Disponible</option>
+                            <option value="prestado">Prestado</option>
+                            <option value="mantenimiento">Mantenimiento</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <select class="form-select" id="ubicacionFilter">
+                            <option value="">Todas las ubicaciones</option>
+                            <option value="A1">Estante A1</option>
+                            <option value="B2">Estante B2</option>
+                            <option value="C3">Estante C3</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <button type="button" class="btn btn-outline-secondary w-100" onclick="limpiarFiltros()">
+                            <i class="fas fa-times me-1"></i>Limpiar
+                        </button>
+                    </div>
+                </div>
+
+                 Lista de libros 
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">Inventario de Libros</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>ISBN</th>
+                                        <th>Título</th>
+                                        <th>Autor</th>
+                                        <th>Categoría</th>
+                                        <th>Ubicación</th>
+                                        <th>Estado</th>
+                                        <th>Copias</th>
+                                        <th>Disponibles</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="librosTableBody">
+                                    <tr>
+                                        <td>978-0134685991</td>
+                                        <td>Effective Java</td>
+                                        <td>Joshua Bloch</td>
+                                        <td><span class="badge bg-info">Programación</span></td>
+                                        <td>A1-15</td>
+                                        <td><span class="badge bg-success">Disponible</span></td>
+                                        <td>5</td>
+                                        <td>3</td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary me-1" onclick="verLibro(1)" title="Ver detalles">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-warning me-1" onclick="editarLibro(1)" title="Editar">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-info me-1" onclick="prestarLibro(1)" title="Prestar">
+                                                <i class="fas fa-hand-holding"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-danger" onclick="eliminarLibro(1)" title="Eliminar">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>978-0321356680</td>
+                                        <td>Clean Code</td>
+                                        <td>Robert C. Martin</td>
+                                        <td><span class="badge bg-info">Programación</span></td>
+                                        <td>A1-20</td>
+                                        <td><span class="badge bg-warning">Prestado</span></td>
+                                        <td>3</td>
+                                        <td>1</td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary me-1" onclick="verLibro(2)" title="Ver detalles">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-warning me-1" onclick="editarLibro(2)" title="Editar">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-success me-1" onclick="devolverLibro(2)" title="Devolver">
+                                                <i class="fas fa-undo"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-danger" onclick="eliminarLibro(2)" title="Eliminar">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>978-0134494166</td>
+                                        <td>The Clean Coder</td>
+                                        <td>Robert C. Martin</td>
+                                        <td><span class="badge bg-info">Programación</span></td>
+                                        <td>A1-25</td>
+                                        <td><span class="badge bg-success">Disponible</span></td>
+                                        <td>2</td>
+                                        <td>2</td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary me-1" onclick="verLibro(3)" title="Ver detalles">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-warning me-1" onclick="editarLibro(3)" title="Editar">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-info me-1" onclick="prestarLibro(3)" title="Prestar">
+                                                <i class="fas fa-hand-holding"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-danger" onclick="eliminarLibro(3)" title="Eliminar">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+     Modal para crear/editar libro 
+    <div class="modal fade" id="libroModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="libroModalTitle">Nuevo Libro</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="libroForm">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="isbnLibro" class="form-label">ISBN</label>
+                                <input type="text" class="form-control" id="isbnLibro" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="tituloLibro" class="form-label">Título</label>
+                                <input type="text" class="form-control" id="tituloLibro" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="autorLibro" class="form-label">Autor</label>
+                                <input type="text" class="form-control" id="autorLibro" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="editorialLibro" class="form-label">Editorial</label>
+                                <input type="text" class="form-control" id="editorialLibro">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <label for="categoriaLibro" class="form-label">Categoría</label>
+                                <select class="form-select" id="categoriaLibro" required>
+                                    <option value="">Seleccionar categoría</option>
+                                    <option value="programacion">Programación</option>
+                                    <option value="matematicas">Matemáticas</option>
+                                    <option value="historia">Historia</option>
+                                    <option value="literatura">Literatura</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="ubicacionLibro" class="form-label">Ubicación</label>
+                                <input type="text" class="form-control" id="ubicacionLibro" placeholder="Ej: A1-15">
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="copiasLibro" class="form-label">Número de Copias</label>
+                                <input type="number" class="form-control" id="copiasLibro" min="1" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="fechaPublicacion" class="form-label">Fecha de Publicación</label>
+                                <input type="date" class="form-control" id="fechaPublicacion">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="estadoLibro" class="form-label">Estado</label>
+                                <select class="form-select" id="estadoLibro" required>
+                                    <option value="disponible">Disponible</option>
+                                    <option value="mantenimiento">En Mantenimiento</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="descripcionLibro" class="form-label">Descripción</label>
+                            <textarea class="form-control" id="descripcionLibro" rows="3"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" onclick="guardarLibro()">Guardar Libro</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     Modal para préstamo de libro 
+    <div class="modal fade" id="prestamoModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Préstamo de Libro</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="prestamoForm">
+                        <div class="mb-3">
+                            <label for="usuarioPrestamo" class="form-label">Usuario</label>
+                            <select class="form-select" id="usuarioPrestamo" required>
+                                <option value="">Seleccionar usuario</option>
+                                <option value="1">Juan Pérez - Estudiante</option>
+                                <option value="2">María García - Docente</option>
+                                <option value="3">Carlos López - Estudiante</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="fechaDevolucion" class="form-label">Fecha de Devolución</label>
+                            <input type="date" class="form-control" id="fechaDevolucion" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="observaciones" class="form-label">Observaciones</label>
+                            <textarea class="form-control" id="observaciones" rows="2"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" onclick="confirmarPrestamo()">Confirmar Préstamo</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function verLibro(id) {
+            alert('Ver detalles del libro ID: ' + id);
+        }
+
+        function editarLibro(id) {
+            document.getElementById('libroModalTitle').textContent = 'Editar Libro';
+            const modal = new bootstrap.Modal(document.getElementById('libroModal'));
+            modal.show();
+        }
+
+        function prestarLibro(id) {
+            const modal = new bootstrap.Modal(document.getElementById('prestamoModal'));
+            modal.show();
+        }
+
+        function devolverLibro(id) {
+            if (confirm('¿Confirmar devolución del libro?')) {
+                alert('Libro devuelto ID: ' + id);
+            }
+        }
+
+        function eliminarLibro(id) {
+            if (confirm('¿Está seguro de que desea eliminar este libro del inventario?')) {
+                alert('Libro eliminado ID: ' + id);
+            }
+        }
+
+        function guardarLibro() {
+            const form = document.getElementById('libroForm');
+            if (form.checkValidity()) {
+                alert('Libro guardado exitosamente');
+                const modal = bootstrap.Modal.getInstance(document.getElementById('libroModal'));
+                modal.hide();
+                form.reset();
+            } else {
+                form.reportValidity();
+            }
+        }
+
+        function confirmarPrestamo() {
+            const form = document.getElementById('prestamoForm');
+            if (form.checkValidity()) {
+                alert('Préstamo registrado exitosamente');
+                const modal = bootstrap.Modal.getInstance(document.getElementById('prestamoModal'));
+                modal.hide();
+                form.reset();
+            } else {
+                form.reportValidity();
+            }
+        }
+
+        function limpiarFiltros() {
+            document.getElementById('searchInput').value = '';
+            document.getElementById('categoriaFilter').value = '';
+            document.getElementById('estadoFilter').value = '';
+            document.getElementById('ubicacionFilter').value = '';
+        }
+
+        // Establecer fecha mínima para devolución (mañana)
+        document.getElementById('fechaDevolucion').min = new Date(Date.now() + 86400000).toISOString().split('T')[0];
+    </script>
+</body>
+</html>

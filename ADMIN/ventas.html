@@ -1,1 +1,492 @@
-<!-- REPORTE DE VENTAS -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Ventas - Sistema Educativo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="../ASSETS/CSS/ventas.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="dashboard.html">
+                <i class="fas fa-graduation-cap me-2"></i>Sistema Educativo
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html"><i class="fas fa-tachometer-alt me-1"></i>Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="usuarios.html"><i class="fas fa-users me-1"></i>Usuarios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cursos.html"><i class="fas fa-book me-1"></i>Cursos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="matriculas.html"><i class="fas fa-user-graduate me-1"></i>Matrículas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="libros.html"><i class="fas fa-book-open me-1"></i>Libros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="ventas.html"><i class="fas fa-shopping-cart me-1"></i>Ventas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="reportes.html"><i class="fas fa-chart-bar me-1"></i>Reportes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="roles.html"><i class="fas fa-user-shield me-1"></i>Roles</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-user-circle me-1"></i>Admin
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i>Configuración</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt me-2"></i>Cerrar Sesión</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid py-4">
+        <div class="row">
+            <div class="col-12">
+                <div class="page-header">
+                    <h1><i class="fas fa-shopping-cart me-3"></i>Gestión de Ventas</h1>
+                    <p>Administra transacciones y ventas relacionadas con material educativo y matrículas</p>
+                </div>
+            </div>
+        </div>
+
+         Estadísticas de Ventas 
+        <div class="row mb-4">
+            <div class="col-md-3">
+                <div class="stats-card">
+                    <div class="stats-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <div class="stats-content">
+                        <h3>$45,280</h3>
+                        <p>Ventas del Mes</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stats-card">
+                    <div class="stats-icon">
+                        <i class="fas fa-shopping-bag"></i>
+                    </div>
+                    <div class="stats-content">
+                        <h3>156</h3>
+                        <p>Transacciones</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stats-card">
+                    <div class="stats-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="stats-content">
+                        <h3>$290</h3>
+                        <p>Venta Promedio</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stats-card">
+                    <div class="stats-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <div class="stats-content">
+                        <h3>12</h3>
+                        <p>Pendientes de Pago</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+         Filtros y Acciones 
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="action-bar">
+                    <div class="d-flex flex-wrap gap-3 align-items-center">
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#nuevaVentaModal">
+                            <i class="fas fa-plus me-2"></i>Nueva Venta
+                        </button>
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" class="form-control" placeholder="Buscar por cliente, producto o factura...">
+                        </div>
+                        <select class="form-select filter-select">
+                            <option value="">Todos los tipos</option>
+                            <option value="matricula">Matrícula</option>
+                            <option value="libro">Libro</option>
+                            <option value="material">Material Educativo</option>
+                            <option value="certificado">Certificado</option>
+                        </select>
+                        <select class="form-select filter-select">
+                            <option value="">Todos los estados</option>
+                            <option value="completada">Completada</option>
+                            <option value="pendiente">Pendiente</option>
+                            <option value="cancelada">Cancelada</option>
+                        </select>
+                        <input type="date" class="form-control filter-select">
+                        <button class="btn btn-outline-secondary">
+                            <i class="fas fa-download me-2"></i>Exportar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+         Tabla de Ventas 
+        <div class="row">
+            <div class="col-12">
+                <div class="table-container">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Factura</th>
+                                <th>Cliente</th>
+                                <th>Producto/Servicio</th>
+                                <th>Fecha</th>
+                                <th>Método de Pago</th>
+                                <th>Total</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>FAC-2024-001</strong></td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <div class="avatar-sm me-2">JP</div>
+                                        <div>
+                                            <div class="fw-bold">Juan Pérez</div>
+                                            <small class="text-muted">juan.perez@email.com</small>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div class="fw-bold">Matrícula - Matemáticas Avanzadas</div>
+                                        <small class="text-muted">Curso académico</small>
+                                    </div>
+                                </td>
+                                <td>15/01/2024</td>
+                                <td>
+                                    <span class="badge bg-primary">
+                                        <i class="fas fa-credit-card me-1"></i>Tarjeta
+                                    </span>
+                                </td>
+                                <td><strong>$450.00</strong></td>
+                                <td><span class="badge status-completada">Completada</span></td>
+                                <td>
+                                    <div class="btn-group" role="group">
+                                        <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#verVentaModal">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="btn btn-sm btn-outline-success" onclick="imprimirFactura('FAC-2024-001')">
+                                            <i class="fas fa-print"></i>
+                                        </button>
+                                        <button class="btn btn-sm btn-outline-danger" onclick="confirmarAnulacion('FAC-2024-001')">
+                                            <i class="fas fa-ban"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>FAC-2024-002</strong></td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <div class="avatar-sm me-2">MR</div>
+                                        <div>
+                                            <div class="fw-bold">María Rodríguez</div>
+                                            <small class="text-muted">maria.rodriguez@email.com</small>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div class="fw-bold">Libro - Física Cuántica Básica</div>
+                                        <small class="text-muted">Material educativo</small>
+                                    </div>
+                                </td>
+                                <td>16/01/2024</td>
+                                <td>
+                                    <span class="badge bg-success">
+                                        <i class="fas fa-money-bill me-1"></i>Efectivo
+                                    </span>
+                                </td>
+                                <td><strong>$85.00</strong></td>
+                                <td><span class="badge status-completada">Completada</span></td>
+                                <td>
+                                    <div class="btn-group" role="group">
+                                        <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#verVentaModal">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="btn btn-sm btn-outline-success" onclick="imprimirFactura('FAC-2024-002')">
+                                            <i class="fas fa-print"></i>
+                                        </button>
+                                        <button class="btn btn-sm btn-outline-danger" onclick="confirmarAnulacion('FAC-2024-002')">
+                                            <i class="fas fa-ban"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>FAC-2024-003</strong></td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <div class="avatar-sm me-2">LM</div>
+                                        <div>
+                                            <div class="fw-bold">Luis Martínez</div>
+                                            <small class="text-muted">luis.martinez@email.com</small>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div class="fw-bold">Certificado de Finalización</div>
+                                        <small class="text-muted">Documento oficial</small>
+                                    </div>
+                                </td>
+                                <td>17/01/2024</td>
+                                <td>
+                                    <span class="badge bg-warning">
+                                        <i class="fas fa-university me-1"></i>Transferencia
+                                    </span>
+                                </td>
+                                <td><strong>$25.00</strong></td>
+                                <td><span class="badge status-pendiente">Pendiente</span></td>
+                                <td>
+                                    <div class="btn-group" role="group">
+                                        <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#verVentaModal">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="btn btn-sm btn-outline-success" onclick="imprimirFactura('FAC-2024-003')">
+                                            <i class="fas fa-print"></i>
+                                        </button>
+                                        <button class="btn btn-sm btn-outline-danger" onclick="confirmarAnulacion('FAC-2024-003')">
+                                            <i class="fas fa-ban"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                 Paginación 
+                <nav aria-label="Paginación de ventas">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1">Anterior</a>
+                        </li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">Siguiente</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+     Modal Nueva Venta 
+    <div class="modal fade" id="nuevaVentaModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fas fa-plus me-2"></i>Nueva Venta</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Cliente *</label>
+                                    <select class="form-select" required>
+                                        <option value="">Seleccionar cliente</option>
+                                        <option value="1">Juan Pérez - juan.perez@email.com</option>
+                                        <option value="2">María Rodríguez - maria.rodriguez@email.com</option>
+                                        <option value="3">Luis Martínez - luis.martinez@email.com</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Tipo de Producto *</label>
+                                    <select class="form-select" required>
+                                        <option value="">Seleccionar tipo</option>
+                                        <option value="matricula">Matrícula</option>
+                                        <option value="libro">Libro</option>
+                                        <option value="material">Material Educativo</option>
+                                        <option value="certificado">Certificado</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="mb-3">
+                                    <label class="form-label">Producto/Servicio *</label>
+                                    <select class="form-select" required>
+                                        <option value="">Seleccionar producto</option>
+                                        <option value="1">Matemáticas Avanzadas - $450.00</option>
+                                        <option value="2">Física Cuántica - $520.00</option>
+                                        <option value="3">Química Orgánica - $380.00</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label class="form-label">Cantidad *</label>
+                                    <input type="number" class="form-control" min="1" value="1" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Precio Unitario *</label>
+                                    <input type="number" class="form-control" step="0.01" required placeholder="0.00">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Descuento (%)</label>
+                                    <input type="number" class="form-control" min="0" max="100" placeholder="0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Método de Pago *</label>
+                                    <select class="form-select" required>
+                                        <option value="">Seleccionar método</option>
+                                        <option value="efectivo">Efectivo</option>
+                                        <option value="tarjeta">Tarjeta de Crédito/Débito</option>
+                                        <option value="transferencia">Transferencia Bancaria</option>
+                                        <option value="cheque">Cheque</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Fecha de Venta *</label>
+                                    <input type="date" class="form-control" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Observaciones</label>
+                            <textarea class="form-control" rows="3" placeholder="Observaciones adicionales..."></textarea>
+                        </div>
+                        <div class="alert alert-info">
+                            <strong>Total a Pagar: $0.00</strong>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary">Registrar Venta</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     Modal Ver Venta 
+    <div class="modal fade" id="verVentaModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fas fa-eye me-2"></i>Detalles de Venta</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6>Información de la Venta</h6>
+                            <p><strong>Factura:</strong> FAC-2024-001</p>
+                            <p><strong>Fecha:</strong> 15/01/2024</p>
+                            <p><strong>Estado:</strong> <span class="badge status-completada">Completada</span></p>
+                            <p><strong>Método de Pago:</strong> Tarjeta de Crédito</p>
+                        </div>
+                        <div class="col-md-6">
+                            <h6>Información del Cliente</h6>
+                            <p><strong>Cliente:</strong> Juan Pérez</p>
+                            <p><strong>Email:</strong> juan.perez@email.com</p>
+                            <p><strong>Teléfono:</strong> +1 234 567 8900</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <h6>Detalles del Producto</h6>
+                    <div class="table-responsive">
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th>Producto</th>
+                                    <th>Cantidad</th>
+                                    <th>Precio Unit.</th>
+                                    <th>Descuento</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Matrícula - Matemáticas Avanzadas</td>
+                                    <td>1</td>
+                                    <td>$450.00</td>
+                                    <td>0%</td>
+                                    <td>$450.00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="text-end">
+                        <h5><strong>Total: $450.00</strong></h5>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-success" onclick="imprimirFactura('FAC-2024-001')">
+                        <i class="fas fa-print me-2"></i>Imprimir Factura
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function confirmarAnulacion(factura) {
+            if (confirm('¿Está seguro de que desea anular la venta ' + factura + '?')) {
+                alert('Venta anulada correctamente');
+            }
+        }
+
+        function imprimirFactura(factura) {
+            alert('Imprimiendo factura ' + factura);
+        }
+    </script>
+</body>
+</html>

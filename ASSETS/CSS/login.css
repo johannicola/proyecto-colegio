@@ -1,0 +1,22 @@
+body {
+  background: linear-gradient(135deg, #722f37, #d4af37);
+}
+
+.card {
+  background-color: #fff;
+  border: none;
+  border-radius: 1rem;
+}
+
+.btn-primary {
+  background-color: #722f37;
+  border: none;
+  transition: background 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #d4af37;
+  color: #722f37;
+}
+
+
